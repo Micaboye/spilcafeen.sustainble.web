@@ -108,8 +108,9 @@ main {
 }
 
 #search-input,
-#genre-select,
-#sort-select {
+#players-select,
+#genre-select1,
+#genre-select2 {
   background: var(--bg-card);
   color: var(--text);
   border: 1px solid var(--secondary);
@@ -121,8 +122,9 @@ main {
 }
 
 #search-input:focus,
-#genre-select:focus,
-#sort-select:focus {
+#players-select:focus,
+#genre-select1:focus,
+#genre-select2:focus {
   outline: 3px solid var(--secondary);
   outline-offset: 2px;
 }
@@ -132,8 +134,9 @@ main {
   opacity: 1;
 }
 
-#genre-select,
-#sort-select {
+#players-select,
+#genre-select1,
+#genre-select2 {
   min-width: 160px;
   cursor: pointer;
 }
