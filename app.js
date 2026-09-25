@@ -53,7 +53,7 @@ function displayGame(game) {
       <button class="game-card-button" type="button">
         <img
           src="${game.image}"
-          alt="Spilcover til ${game.title}"
+          alt=""
           class="game-poster"
         />
 
@@ -152,7 +152,7 @@ function showGameModal(game) {
   document.querySelector("#dialog-content").innerHTML = `
     <img
       src="${game.image}"
-      alt="Spilcover til ${game.title}"
+      alt=""
       class="game-poster"
     >
 
