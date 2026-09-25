@@ -6,7 +6,25 @@ document.addEventListener("DOMContentLoaded", initApp);
 
 // Global variabel til alle spil - tilgængelig for alle funktioner
 let allGames = [];
+const optimizedImages = {
+  Backgammon: "img/backgammon.webp",
+  Catan: "img/catan.webp",
+  Cluedo: "img/cluedo.webp",
+  Ludo: "img/ludo.webp",
+  Matador: "img/matador.webp",
+  Monopoly: "img/monopoly.webp",
+  Partners: "img/partners.webp",
+  Risk: "img/risk.webp",
+  Sequence: "img/sequence.webp",
+  Skak: "img/skak.webp",
+  Stratego: "img/stratego.webp",
+  Uno: "img/uno.webp",
+  Yatzy: "img/yatzy.webp",
+};
 
+function getGameImage(game) {
+  return optimizedImages[game.title] || game.image;
+}
 // #1: Initialize the app - sæt event listeners og hent data
 function initApp() {
   getGames();
@@ -39,7 +57,7 @@ async function getGames() {
   );
 
   allGames = await response.json();
-
+  console.log(allGames.map((game) => game.title));
   populateGenreDropdown();
   displayGames(allGames);
 }
@@ -52,7 +70,7 @@ function displayGame(game) {
     <article class="game-card">
       <button class="game-card-button" type="button">
        <img
-  src="${game.image}"
+ src="${getGameImage(game)}"
   alt=""
   class="game-poster"
   loading="lazy"
@@ -153,7 +171,7 @@ function populateGenreDropdown() {
 function showGameModal(game) {
   document.querySelector("#dialog-content").innerHTML = `
     <img
-      src="${game.image}"
+     src="${getGameImage(game)}"
       alt=""
       class="game-poster"
     >
