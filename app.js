@@ -56,7 +56,7 @@ function displayGame(game) {
       alt = "Poster of "${game.title}"
       class= "game-poster"/>
       <div class= "game-info">
-      <h3>${game.title}</h3>
+      <h2>${game.title}</h2>
       
 
       
