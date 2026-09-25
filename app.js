@@ -237,13 +237,21 @@ function filterGames() {
 // ===== VIS SPILLISTE =====
 function displayGames(games) {
   const gameList = document.querySelector("#game-list");
+  const resultsStatus = document.querySelector("#results-status");
 
   gameList.innerHTML = "";
 
   if (!games || games.length === 0) {
+    resultsStatus.textContent = "Ingen spil fundet";
     gameList.innerHTML =
       '<p class="no-results">Ingen spil matchede dine filtre</p>';
     return;
+  }
+
+  if (games.length === 1) {
+    resultsStatus.textContent = "1 spil fundet";
+  } else {
+    resultsStatus.textContent = `${games.length} spil fundet`;
   }
 
   for (const game of games) {
