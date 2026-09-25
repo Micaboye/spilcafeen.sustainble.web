@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="da">
   <head>
     <meta charset="UTF-8" />
@@ -21,11 +21,7 @@
       <!-- Search Bar -->
       <div class="searchbar-container">
         <label for="search-input">Søg efter spil</label>
-        <input
-          id="search-input"
-          type="search"
-          placeholder="Søg spil..."
-        />
+        <input id="search-input" type="search" placeholder="Søg spil..." />
       </div>
 
       <!-- Filter Bar -->
@@ -45,28 +41,19 @@
           <select id="genre-select1"></select>
         </div>
 
-        <select id="#genre-select4">
-          <option value="all">Flere filtre</option>
-          <option value="all">Alder</option>
-          <option value="all">Sprog</option>
-          <option value="all">Nye/ældre</option>
-          <option value="all">Rating</option>
-          <option value="all">Sværhedsgrad</option>
-        </select>
-
         <button id="clear-filters" class="clear-btn">
           <span class="btn-icon"></span>
           <span class="btn-text">Ryd filtre</span>
         </button>
       </section>
 
-   <!-- Feedback på antal spil -->
-<p id="results-status" aria-live="polite"></p>
+      <!-- Feedback på antal spil -->
+      <p id="results-status" aria-live="polite"></p>
 
-<!-- Game List -->
-<section id="game-list">
-  <!-- Game cards will be rendered here by JavaScript -->
-</section>
+      <!-- Game List -->
+      <section id="game-list">
+        <!-- Game cards will be rendered here by JavaScript -->
+      </section>
     </main>
 
     <dialog id="game-dialog">
