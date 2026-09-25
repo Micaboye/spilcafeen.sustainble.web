@@ -51,11 +51,13 @@ function displayGame(game) {
   const gameHTML = `
     <article class="game-card">
       <button class="game-card-button" type="button">
-        <img
-          src="${game.image}"
-          alt=""
-          class="game-poster"
-        />
+       <img
+  src="${game.image}"
+  alt=""
+  class="game-poster"
+  loading="lazy"
+  decoding="async"
+/>
 
         <div class="game-info">
           <h2>${game.title}</h2>
