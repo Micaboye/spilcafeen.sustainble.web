@@ -356,6 +356,7 @@ dialog#game-dialog::backdrop {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  position: static;
 }
 
 .game-description {
@@ -383,7 +384,10 @@ dialog#game-dialog::backdrop {
   }
 
   #dialog-content img.game-poster {
-    max-width: 300px;
+    width: auto;
+    max-width: 200px;
+    max-height: 180px;
+    object-fit: contain;
     margin: 0 auto;
   }
 
