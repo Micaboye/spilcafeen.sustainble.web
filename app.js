@@ -157,7 +157,7 @@ function showGameModal(game) {
     >
 
     <div class="dialog-details">
-      <h2>${game.title}</h2>
+    <h2 id="dialog-title">${game.title}</h2>
 
       <p class="game-genre">
         ${Array.isArray(game.genre) ? game.genre.join(", ") : game.genre || ""}
