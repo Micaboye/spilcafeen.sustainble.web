@@ -1,92 +1,31 @@
 :root {
-  /* Colors */
-  --primary: #fbf1f1;
-  --secondary: #d5d2d2;
-  --primary-light: #fbf1f1;
-  --secondary-light: #ffffff;
+  /* Farver */
+  --primary: #ffe7ea;
+  --secondary: #5b090a;
 
-  /* Text - Dark Mode Colors */
+  /* Tekst */
   --text: #000000;
   --text-light: #2f2f2f;
 
-  /* Backgrounds - Dark Mode */
-  --bg: #fbf1f1;
+  /* Baggrunde */
+  --bg: #ffe7ea;
   --bg-card: #ffffff;
 
+  /* Status */
+  --warning: #5b090a;
+  --error: #b00020;
+
+  /* Effekter */
   --radius: 14px;
-  --shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
-  --warning: #080808;
-}
-
-/* =====================
-   GLOBAL STYLES
-   ===================== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-/* =====================
-   SEARCHBAR CONTAINER
-   ===================== */
-.searchbar-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.searchbar-container #search-input {
-  width: 100%;
-  max-width: 400px;
-  background: var(--bg-card);
-  color: pink;
-  border: 1px solid var(--secondary);
-  border-radius: var(--radius);
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  transition: var(--transition);
-  box-shadow: var(--shadow);
-}
-
-.searchbar-container #search-input:focus {
-  outline: 2px solid var(--secondary);
-  border-color: var(--secondary);
-}
-/* =====================
-   DARK MODE CSS VARIABLES
-   ===================== */
-:root {
-  /* Colors */
-  --primary: pink;
-  --secondary: white;
-  --primary-light: white;
-  --secondary-light: white;
-
-  /* Text - Dark Mode Colors */
-  --text: #121618;
-  --text-light: #dadce0;
-
-  /* Backgrounds - Dark Mode */
-  --bg: #f4d6ef;
-  --bg-card: white;
-
-  /* Semantic */
-  --success: #34a853;
-  --warning: #fbc02d;
-  --error: #ea4335;
-
-  /* Effects */
-  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4);
-  --radius: 1rem;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.15);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.2);
   --transition: 250ms ease;
 }
 
 /* =====================
    GLOBAL STYLES
    ===================== */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -98,14 +37,15 @@ body {
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background: rgb(255, 232, 235);
+  background: var(--bg);
   color: var(--text);
   min-height: 100vh;
 }
 
 /* =====================
-   LAYOUT (main container)
+   LAYOUT
    ===================== */
+
 main {
   max-width: min(1400px, 95vw);
   margin: 0 auto;
@@ -113,8 +53,38 @@ main {
 }
 
 /* =====================
-   FILTERBAR (SØG/SORT/FILTER)
+   SEARCHBAR
    ===================== */
+
+.searchbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.searchbar-container #search-input {
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--secondary);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.searchbar-container #search-input:focus {
+  outline: 3px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+/* =====================
+   FILTERBAR
+   ===================== */
+
 .filterbar {
   display: flex;
   gap: 1rem;
@@ -128,7 +98,7 @@ main {
   transform: translateX(-50%);
   padding: 1.5rem 2vw;
   box-sizing: border-box;
-  background: rgb(255, 232, 235);
+  background: var(--bg);
   border-radius: var(--radius);
 }
 
@@ -153,8 +123,8 @@ main {
 #search-input:focus,
 #genre-select:focus,
 #sort-select:focus {
-  outline: 2px solid var(--secondary);
-  border-color: var(--secondary);
+  outline: 3px solid var(--secondary);
+  outline-offset: 2px;
 }
 
 #search-input::placeholder {
@@ -171,10 +141,11 @@ main {
 /* =====================
    HEADER & FOOTER
    ===================== */
+
 header {
-  background: rgb(255, 232, 235);
+  background: var(--bg);
   backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(172, 198, 201, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   color: var(--text);
   padding: 1rem 0;
   text-align: center;
@@ -200,12 +171,9 @@ footer {
   margin-top: 4rem;
 }
 
-/* (main er allerede defineret ovenfor - dublet fjernet) */
-
 /* =====================
-   MOVIE GRID & CARDS
+   GAME GRID & CARDS
    ===================== */
-/* TODO !!! */
 
 .game-card {
   width: 100%;
@@ -217,12 +185,24 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  transition: var(--transition);
 }
 
 .game-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: var(--shadow-lg);
-  border-color: var(--secondary);
+}
+
+.game-card-button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
 .game-poster {
@@ -258,7 +238,7 @@ footer {
 }
 
 .game-genre {
-  color: black;
+  color: var(--text);
   font-size: 0.9rem;
   margin-bottom: 0.75rem;
 }
@@ -275,8 +255,9 @@ footer {
 }
 
 /* =====================
-   MOVIE DIALOG
+   GAME DIALOG
    ===================== */
+
 dialog#game-dialog {
   border: none;
   border-radius: var(--radius);
@@ -301,7 +282,7 @@ dialog#game-dialog::backdrop {
   top: 1rem;
   right: 1rem;
   background: rgba(255, 255, 255, 0.9);
-  color: var(--text-light);
+  color: var(--text);
   border: none;
   border-radius: 50%;
   width: 2.5rem;
@@ -331,15 +312,6 @@ dialog#game-dialog::backdrop {
   max-height: 90vh;
 }
 
-@media (max-width: 768px) {
-  #dialog-content {
-    grid-template-columns: 1fr;
-    padding: 1.5rem;
-    gap: 1.5rem;
-    text-align: center;
-  }
-}
-
 #dialog-content img.game-poster {
   width: 100%;
   height: auto;
@@ -347,13 +319,6 @@ dialog#game-dialog::backdrop {
   object-fit: cover;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-}
-
-@media (max-width: 768px) {
-  #dialog-content img.game-poster {
-    max-width: 300px;
-    margin: 0 auto;
-  }
 }
 
 .dialog-details {
@@ -370,17 +335,6 @@ dialog#game-dialog::backdrop {
   margin: 0 0 1rem 0;
 }
 
-#dialog-content .movie-year {
-  display: inline-block;
-  background: var(--secondary-light);
-  color: var(--primary);
-  padding: 0.25rem 0.75rem;
-  border-radius: 0.5rem;
-  margin-left: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
 #dialog-content p {
   color: var(--text-light);
   line-height: 1.6;
@@ -392,13 +346,7 @@ dialog#game-dialog::backdrop {
   font-weight: 600;
 }
 
-#dialog-content .movie-genre {
-  color: var(--secondary);
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-
-#dialog-content .movie-rating {
+#dialog-content .game-rating {
   color: var(--warning);
   font-weight: 600;
   font-size: 1.125rem;
@@ -407,27 +355,40 @@ dialog#game-dialog::backdrop {
   gap: 0.5rem;
 }
 
-@media (max-width: 768px) {
-  #dialog-content .game-rating {
-    justify-content: center;
-  }
-}
-
 .game-description {
   color: var(--text) !important;
   font-size: 1.1rem !important;
   line-height: 1.7 !important;
   margin-top: 1rem !important;
   padding: 1rem;
-  background: var(--secondary-light);
+  background: var(--primary);
   border-radius: var(--radius);
   border-left: 4px solid var(--secondary);
   font-style: italic;
 }
 
 /* =====================
-   RESPONSIVE & ACCESSIBILITY
+   RESPONSIVE
    ===================== */
+
+@media (max-width: 768px) {
+  #dialog-content {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  #dialog-content img.game-poster {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  #dialog-content .game-rating {
+    justify-content: center;
+  }
+}
+
 @media (min-width: 600px) {
   #game-list {
     display: grid;
@@ -435,26 +396,20 @@ dialog#game-dialog::backdrop {
     gap: 1.5rem;
     padding: 2rem 0;
   }
+
   .game-card {
     max-width: 350px;
     margin: 0 auto;
   }
+
   header h1 {
     font-size: 1.75rem;
   }
 }
 
-.game-card-button {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-}
+/* =====================
+   ACCESSIBILITY
+   ===================== */
 
 /* Tydeligt fokus ved tastaturnavigation */
 .game-card-button:focus-visible,
@@ -463,8 +418,7 @@ dialog#game-dialog::backdrop {
   outline-offset: -3px;
 }
 
-
-
+/* Skjult visuelt, men tilgængelig for skærmlæsere */
 .sr-only {
   position: absolute;
   width: 1px;
