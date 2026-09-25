@@ -31,7 +31,7 @@ function initApp() {
 async function getGames() {
   // Hent data fra URL - await venter på svar før vi går videre
   let response = await fetch(
-    "https://raw.githubusercontent.com/cederdorff/race/refs/heads/master/data/games.json"
+    "https://raw.githubusercontent.com/cederdorff/race/refs/heads/master/data/games.json",
   );
 
   allGames = await response.json();
@@ -40,50 +40,38 @@ async function getGames() {
   displayGames(allGames); // Vis alle film ved start
 }
 
-// Loop gennem alle film og vis hver enkelt
-for (const game of allGames) {
-  displayGame(game); // Kald displayMovie for hver film
-}
 
-// #4: Render a single game card and add event listeners - lav et spil kort
+// #4: Render et enkelt spilkort
 function displayGame(game) {
-  const gameList = document.querySelector("#game-list"); // Find container til film
+  const gameList = document.querySelector("#game-list");
 
-  // Byg HTML struktur dynamisk - template literal med ${} til at indsætte data
   const gameHTML = `
-  <article class="game-card" tabindex ="0">
-    <img src = "${game.image}"
-      alt = "Poster of "${game.title}"
-      class= "game-poster"/>
-      <div class= "game-info">
-      <h2>${game.title}</h2>
-      
+    <article class="game-card">
+      <button class="game-card-button" type="button">
+        <img
+          src="${game.image}"
+          alt="Spilcover til ${game.title}"
+          class="game-poster"
+        />
 
-      
-      <p class= "game-rating">⭐ ${game.rating}</p>
-      <p class= "game-playtime">Ca. ${game.playtime} min.</p>
-      <p class= "game-players">${game.players.min} - ${game.players.max} spillere</p>
-      <p class= "game-genre">${game.genre}</p>
-      </div>
-  </article>`;
+        <div class="game-info">
+          <h2>${game.title}</h2>
+          <p class="game-rating">⭐ ${game.rating}</p>
+          <p class="game-playtime">Ca. ${game.playtime} min.</p>
+          <p class="game-players">${game.players.min} - ${game.players.max} spillere</p>
+          <p class="game-genre">${game.genre}</p>
+        </div>
+      </button>
+    </article>
+  `;
 
-  // Tilføj game card til DOM (HTML) - insertAdjacentHTML sætter HTML ind uden at overskrive
   gameList.insertAdjacentHTML("beforeend", gameHTML);
 
-  // Find det kort vi lige har tilføjet (det sidste element)
   const newCard = gameList.lastElementChild;
+  const cardButton = newCard.querySelector(".game-card-button");
 
-  // Tilføj click event til kortet - når brugeren klikker på kortet
-  newCard.addEventListener("click", function () {
-    showGameModal(game); //
-  });
-
-  // Tilføj keyboard support (Enter og mellemrum) for tilgængelighed
-  newCard.addEventListener("keydown", function (event) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault(); // Forhindre scroll ved mellemrum
-      showGameModal(game); //
-    }
+  cardButton.addEventListener("click", function () {
+    showGameModal(game);
   });
 }
 
@@ -182,7 +170,7 @@ function filterGames() {
   // FILTER 1: Søgetekst - filtrer på spil titel
   if (searchValue) {
     filteredGames = filteredGames.filter((game) =>
-      game.title.toLowerCase().includes(searchValue)
+      game.title.toLowerCase().includes(searchValue),
     );
   }
 
@@ -194,7 +182,7 @@ function filterGames() {
   // FILTER 3: Genre 2 - filtrer på valgt varighed (playtime in minutes)
   if (genre2Value !== "all") {
     filteredGames = filteredGames.filter(
-      (game) => String(game.playtime) === genre2Value
+      (game) => String(game.playtime) === genre2Value,
     );
   }
 
@@ -203,7 +191,7 @@ function filterGames() {
     const num = Number(playersValue);
     filteredGames = filteredGames.filter(
       (game) =>
-        game.players && num >= game.players.min && num <= game.players.max
+        game.players && num >= game.players.min && num <= game.players.max,
     );
   }
 
