@@ -92,10 +92,10 @@ main {
   justify-content: center;
   margin-bottom: 2rem;
   flex-wrap: wrap;
-  width: 100vw;
-  max-width: none;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  transform: none;
   padding: 1.5rem 2vw;
   box-sizing: border-box;
   background: var(--bg);
@@ -440,7 +440,6 @@ dialog#game-dialog::backdrop {
   color: var(--text);
 }
 
-
 #clear-filters {
   padding: 0.75rem 1rem;
   background: var(--secondary);
@@ -461,4 +460,54 @@ dialog#game-dialog::backdrop {
 #clear-filters:focus-visible {
   outline: 3px solid #000000;
   outline-offset: 3px;
+}
+
+
+
+/* Mobilvisning */
+@media (max-width: 599px) {
+  main {
+    max-width: 100%;
+    padding: 6rem 1rem 2rem;
+  }
+
+  .searchbar-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .searchbar-container #search-input {
+    max-width: none;
+    width: 100%;
+  }
+
+  .filterbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    width: 100%;
+  }
+
+  #players-select,
+  #genre-select1,
+  #genre-select2,
+  #clear-filters {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #game-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
 }
