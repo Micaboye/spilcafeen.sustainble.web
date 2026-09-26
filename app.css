@@ -362,15 +362,15 @@ dialog#game-dialog::backdrop {
 }
 
 .game-description {
-  color: var(--text) !important;
-  font-size: 1.1rem !important;
-  line-height: 1.7 !important;
-  margin-top: 1rem !important;
-  padding: 1rem;
-  background: var(--primary);
-  border-radius: var(--radius);
-  border-left: 4px solid var(--secondary);
-  font-style: italic;
+  color: var(--text-light) !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+
+.game-about h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
 /* =====================
