@@ -171,16 +171,26 @@ function populateGenreDropdown() {
 function showGameModal(game) {
   document.querySelector("#dialog-content").innerHTML = `
     <img
-     src="${getGameImage(game)}"
+      src="${getGameImage(game)}"
       alt=""
       class="game-poster"
     >
 
     <div class="dialog-details">
-    <h2 id="dialog-title">${game.title}</h2>
+      <h2 id="dialog-title">${game.title}</h2>
 
       <p class="game-genre">
         ${Array.isArray(game.genre) ? game.genre.join(", ") : game.genre || ""}
+      </p>
+
+      <p>
+        <strong>Antal spillere:</strong>
+        ${game.players.min}–${game.players.max}
+      </p>
+
+      <p>
+        <strong>Spilletid:</strong>
+        Ca. ${game.playtime} min.
       </p>
 
       <p class="game-rating">
@@ -189,7 +199,10 @@ function showGameModal(game) {
         ${game.rating} ud af 5
       </p>
 
-      <p class="game-description">${game.description}</p>
+      <div class="game-about">
+        <h3>Om spillet</h3>
+        <p class="game-description">${game.description}</p>
+      </div>
     </div>
   `;
 
