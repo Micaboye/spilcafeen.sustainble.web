@@ -284,25 +284,27 @@ dialog#game-dialog::backdrop {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--text);
-  border: none;
-  border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: 1.25rem;
-  cursor: pointer;
+  z-index: 10;
+
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.4rem;
+
+  padding: 0.6rem 0.9rem;
+  background: var(--secondary);
+  color: #ffffff;
+  border: 2px solid var(--secondary);
+  border-radius: var(--radius);
+
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
   transition: var(--transition);
-  z-index: 10;
 }
 
 #close-dialog:hover {
-  background: var(--error);
-  color: white;
-  transform: scale(1.1);
+  background: #ffffff;
+  color: var(--secondary);
 }
 
 #dialog-content {
