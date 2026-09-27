@@ -80,11 +80,10 @@ function displayGame(game) {
         <div class="game-info">
           <h2>${game.title}</h2>
 
-          <p class="game-rating">
-            <span aria-hidden="true">★</span>
-            <span class="sr-only">Bedømmelse:</span>
-            ${game.rating} ud af 5
-          </p>
+     <p class="game-rating">
+  <span aria-hidden="true">★ ${game.rating} / 5</span>
+  <span class="sr-only">Bedømmelse: ${game.rating} ud af 5 stjerner</span>
+</p>
 
           <p class="game-playtime">Ca. ${game.playtime} min.</p>
 
@@ -177,7 +176,7 @@ function showGameModal(game) {
     >
 
     <div class="dialog-details">
-      <h2 id="dialog-title">${game.title}</h2>
+  <h2 id="dialog-title" tabindex="-1">${game.title}</h2>
 
       <p class="game-genre">
         ${Array.isArray(game.genre) ? game.genre.join(", ") : game.genre || ""}
@@ -196,7 +195,7 @@ function showGameModal(game) {
       <p class="game-rating">
         <span aria-hidden="true">★</span>
         <span class="sr-only">Bedømmelse:</span>
-        ${game.rating} ud af 5
+        ${game.rating} ud af 5 stjerner
       </p>
 
       <div class="game-about">
@@ -207,6 +206,7 @@ function showGameModal(game) {
   `;
 
   document.querySelector("#game-dialog").showModal();
+  document.querySelector("#dialog-title").focus();
 }
 
 // ===== FILTER FUNKTIONER =====
