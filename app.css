@@ -133,7 +133,7 @@ footer {
 }
 
 .game-info {
-  padding: 1.5rem;
+  padding: 1rem;
   position: relative;
 }
 
@@ -249,13 +249,14 @@ dialog#game-dialog::backdrop {
 
 #dialog-content p {
   color: var(--text-light);
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;
   margin: 0;
 }
 
 #dialog-content p strong {
   color: var(--text);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 #dialog-content .game-rating {
@@ -362,9 +363,11 @@ dialog#game-dialog::backdrop {
 }
 
 #results-status {
-  margin-bottom: 1rem;
-  font-weight: 600;
-  color: var(--text);
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-top: -0.5rem;
 }
 
 /* =====================
@@ -505,6 +508,51 @@ dialog#game-dialog::backdrop {
   outline-offset: 3px;
 }
 
+/* Mobil */
+@media (max-width: 599px) {
+  .intro-section h1 {
+    font-size: 2rem;
+  }
+
+  .intro-lead {
+    font-size: 1rem;
+  }
+
+  .intro-text {
+    font-size: 0.8rem;
+  }
+
+  .searchbar-container {
+    max-width: none;
+    width: 100%;
+  }
+
+  .filterbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .filterbar .filter-group {
+    width: 100%;
+  }
+
+  #players-select,
+  #genre-select1,
+  #genre-select2 {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #clear-filters {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 /* Mobilvisning */
 @media (max-width: 599px) {
   main {
@@ -569,4 +617,14 @@ dialog#game-dialog::backdrop {
     padding: 1rem;
     min-height: 130px;
   }
+}
+
+.game-card .game-genre {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.25rem 0.7rem;
+  background: #ffe7ea;
+  border-radius: 1rem;
+  font-weight: 600;
+  margin: 0;
 }

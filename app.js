@@ -80,11 +80,6 @@ function displayGame(game) {
         <div class="game-info">
           <h2>${game.title}</h2>
 
-     <p class="game-rating">
-  <span aria-hidden="true">★ ${game.rating} / 5</span>
-  <span class="sr-only">Bedømmelse: ${game.rating} ud af 5 stjerner</span>
-</p>
-
           <p class="game-playtime">Ca. ${game.playtime} min.</p>
 
           <p class="game-players">
@@ -92,6 +87,11 @@ function displayGame(game) {
           </p>
 
           <p class="game-genre">${game.genre}</p>
+
+            <p class="game-rating">
+  <span aria-hidden="true">★ ${game.rating} / 5</span>
+  <span class="sr-only">Bedømmelse: ${game.rating} ud af 5 stjerner</span>
+</p>
         </div>
       </button>
     </article>
@@ -129,7 +129,7 @@ function populateGenreDropdown() {
 
   const sortedPlayers = Array.from(playerCounts).sort((a, b) => a - b);
 
-  playersSelect.innerHTML = '<option value="all">Antal spillere</option>';
+  playersSelect.innerHTML = '<option value="all">Alle</option>';
 
   sortedPlayers.forEach((num) => {
     playersSelect.innerHTML += `<option value="${num}">${num} spillere</option>`;
@@ -143,7 +143,7 @@ function populateGenreDropdown() {
     if (game.genre) genres.add(game.genre);
   }
 
-  genreSelect.innerHTML = '<option value="all">Kategori</option>';
+  genreSelect.innerHTML = '<option value="all">Alle</option>';
 
   genres.forEach((genre) => {
     genreSelect.innerHTML += `<option value="${genre}">${genre}</option>`;
@@ -159,7 +159,7 @@ function populateGenreDropdown() {
 
   const sortedPlaytimes = Array.from(playtimes).sort((a, b) => a - b);
 
-  playtimeSelect.innerHTML = '<option value="all">Varighed</option>';
+  playtimeSelect.innerHTML = '<option value="all">Alle</option>';
 
   sortedPlaytimes.forEach((time) => {
     playtimeSelect.innerHTML += `<option value="${time}">${time} min.</option>`;
@@ -178,10 +178,10 @@ function showGameModal(game) {
     <div class="dialog-details">
   <h2 id="dialog-title" tabindex="-1">${game.title}</h2>
 
-      <p class="game-genre">
-        ${Array.isArray(game.genre) ? game.genre.join(", ") : game.genre || ""}
-      </p>
-
+   <p class="game-genre">
+  <strong>Kategori:</strong>
+  ${Array.isArray(game.genre) ? game.genre.join(", ") : game.genre || ""}
+</p>
       <p>
         <strong>Antal spillere:</strong>
         ${game.players.min}–${game.players.max}
