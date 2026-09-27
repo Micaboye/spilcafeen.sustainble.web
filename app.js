@@ -67,8 +67,8 @@ function displayGame(game) {
   const gameList = document.querySelector("#game-list");
 
   const gameHTML = `
-    <article class="game-card">
-      <button class="game-card-button" type="button">
+   <div class="game-card">
+  <button class="game-card-button" type="button">
        <img
  src="${getGameImage(game)}"
   alt=""
@@ -93,8 +93,8 @@ function displayGame(game) {
   <span class="sr-only">Bedømmelse: ${game.rating} ud af 5 stjerner</span>
 </p>
         </div>
-      </button>
-    </article>
+    </button>
+</div>
   `;
 
   gameList.insertAdjacentHTML("beforeend", gameHTML);
