@@ -69,10 +69,12 @@ function displayGame(game) {
   const gameHTML = `
    <div class="game-card">
   <button class="game-card-button" type="button">
-       <img
- src="${getGameImage(game)}"
+  <img
+  src="${getGameImage(game)}"
   alt=""
   class="game-poster"
+  width="400"
+  height="400"
   loading="lazy"
   decoding="async"
 />
