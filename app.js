@@ -129,7 +129,7 @@ function populateGenreDropdown() {
 
   const sortedPlayers = Array.from(playerCounts).sort((a, b) => a - b);
 
-  playersSelect.innerHTML = '<option value="all">Alle</option>';
+  playersSelect.innerHTML = '<option value="all">Antal spillere</option>';
 
   sortedPlayers.forEach((num) => {
     playersSelect.innerHTML += `<option value="${num}">${num} spillere</option>`;
@@ -143,7 +143,7 @@ function populateGenreDropdown() {
     if (game.genre) genres.add(game.genre);
   }
 
-  genreSelect.innerHTML = '<option value="all">Alle</option>';
+  genreSelect.innerHTML = '<option value="all">Kategori</option>';
 
   genres.forEach((genre) => {
     genreSelect.innerHTML += `<option value="${genre}">${genre}</option>`;
@@ -159,14 +159,12 @@ function populateGenreDropdown() {
 
   const sortedPlaytimes = Array.from(playtimes).sort((a, b) => a - b);
 
-  playtimeSelect.innerHTML = '<option value="all">Alle</option>';
+  playtimeSelect.innerHTML = '<option value="all">Varighed</option>';
 
   sortedPlaytimes.forEach((time) => {
     playtimeSelect.innerHTML += `<option value="${time}">${time} min.</option>`;
   });
 }
-
-// #6: Vis spil i dialog
 function showGameModal(game) {
   document.querySelector("#dialog-content").innerHTML = `
     <img
@@ -176,12 +174,13 @@ function showGameModal(game) {
     >
 
     <div class="dialog-details">
-  <h2 id="dialog-title">${game.title}</h2>
+      <h2 id="dialog-title">${game.title}</h2>
 
-   <p class="game-genre">
-  <strong>Kategori:</strong>
-  ${Array.isArray(game.genre) ? game.genre.join(", ") : game.genre || ""}
-</p>
+      <p class="game-genre">
+        <strong>Kategori:</strong>
+        ${Array.isArray(game.genre) ? game.genre.join(", ") : game.genre || ""}
+      </p>
+
       <p>
         <strong>Antal spillere:</strong>
         ${game.players.min}–${game.players.max}
@@ -192,16 +191,16 @@ function showGameModal(game) {
         Ca. ${game.playtime} min.
       </p>
 
+      <div class="game-about">
+        <h3>Om spillet</h3>
+        <p class="game-description">${game.description}</p>
+      </div>
+
       <p class="game-rating">
         <span aria-hidden="true">★</span>
         <span class="sr-only">Bedømmelse:</span>
         ${game.rating} ud af 5 stjerner
       </p>
-
-      <div class="game-about">
-        <h3>Om spillet</h3>
-        <p class="game-description">${game.description}</p>
-      </div>
     </div>
   `;
 
