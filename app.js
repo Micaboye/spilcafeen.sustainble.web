@@ -176,7 +176,7 @@ function showGameModal(game) {
     >
 
     <div class="dialog-details">
-  <h2 id="dialog-title" tabindex="-1">${game.title}</h2>
+  <h2 id="dialog-title">${game.title}</h2>
 
    <p class="game-genre">
   <strong>Kategori:</strong>
@@ -205,8 +205,9 @@ function showGameModal(game) {
     </div>
   `;
 
-  document.querySelector("#game-dialog").showModal();
-  document.querySelector("#dialog-title").focus();
+  const dialog = document.querySelector("#game-dialog");
+  dialog.setAttribute("aria-labelledby", "dialog-title");
+  dialog.showModal();
 }
 
 // ===== FILTER FUNKTIONER =====
